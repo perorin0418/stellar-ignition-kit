@@ -1,0 +1,61 @@
+{
+    "servers": {
+        "serena": {
+            "command": "uvx",
+            "args": [
+                "--from",
+                "git+https://github.com/oraios/serena",
+                "serena",
+                "start-mcp-server",
+                "--context",
+                "ide-assistant"
+            ]
+        },
+        "git": {
+            "command": "uvx",
+            "args": [
+                "mcp-server-git"
+            ]
+        },
+        "sequential-thinking": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@modelcontextprotocol/server-sequential-thinking"
+            ]
+        },
+        "playwright": {
+            "command": "npx",
+            "args": [
+                "@playwright/mcp@latest"
+            ],
+            "type": "stdio"
+        },
+        "fetch": {
+            "command": "uvx",
+            "args": [
+                "mcp-server-fetch"
+            ]
+        },
+        "mcp-server-chart": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@antv/mcp-server-chart"
+            ]
+        },
+        "docker": {
+            "command": "uvx",
+            "args": [
+                "mcp-server-docker"
+            ]
+        },
+        "markdownify": {
+            "command": "uvx",
+            "args": [
+                "markdownify-mcp"
+            ]
+        }
+    },
+    "inputs": []
+}
