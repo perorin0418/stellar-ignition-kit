@@ -17,43 +17,11 @@
                 "mcp-server-git"
             ]
         },
-        "sequential-thinking": {
+        "drawio": {
             "command": "npx",
             "args": [
                 "-y",
-                "@modelcontextprotocol/server-sequential-thinking"
-            ]
-        },
-        "playwright": {
-            "command": "npx",
-            "args": [
-                "@playwright/mcp@latest"
-            ],
-            "type": "stdio"
-        },
-        "fetch": {
-            "command": "uvx",
-            "args": [
-                "mcp-server-fetch"
-            ]
-        },
-        "mcp-server-chart": {
-            "command": "npx",
-            "args": [
-                "-y",
-                "@antv/mcp-server-chart"
-            ]
-        },
-        "docker": {
-            "command": "uvx",
-            "args": [
-                "mcp-server-docker"
-            ]
-        },
-        "markdownify": {
-            "command": "uvx",
-            "args": [
-                "markdownify-mcp"
+                "@drawio/mcp"
             ]
         }
     },

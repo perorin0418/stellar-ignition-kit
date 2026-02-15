@@ -60,6 +60,7 @@ Vision / Milestone / Feature / Task よりも **優先度が高い**。
 05_architecture/
 ├─ README.md ← 本ファイル（拘束定義）
 ├─ system-overview.md ← 全体構成
+├─ system-overview.drawio
 ├─ system-overview.png
 ├─ component-diagram.md ← コンポーネント構成
 ├─ component-diagram.png
