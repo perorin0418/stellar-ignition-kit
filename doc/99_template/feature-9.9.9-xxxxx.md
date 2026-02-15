@@ -1,8 +1,8 @@
 # Feature
 
 ## Feature 名
-- ID：
-- 所属 Milestone：
+- ID： feature-9.9.9-xxxxx
+- 所属 Milestone： milestone-9.9-xxxxx
 
 ## 概要
 この Feature が提供する具体的な機能。
@@ -27,8 +27,8 @@
 - エラーハンドリング方針
 
 ## 対象 Task
-- [ ] task-99.99.99.99-xxxxx
-- [ ] task-99.99.99.99-xxxxx
+- [ ] task-9.9.9.9-xxxxx
+- [ ] task-9.9.9.9-xxxxx
 
 ## 受け入れ条件
 - Feature 完了と判断できる条件

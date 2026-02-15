@@ -105,25 +105,14 @@ Task の記述は、以下の拘束力を持つ。
 
 ## 命名・ファイルルール
 
-### Task ディレクトリ
+### Task ファイル名
 
 ```
-task-<Vision No.>.<Milestone No.>.<Feature No.>.<Task No.>-<簡潔な変更名>.md/
-task-1.2.3.4-AddAuthMiddleware.md/
-task-2.3.4.5.-CreateUserTable.md/
-task-3.4.5.6-UpdateApiHandler.md/
+task-<Vision No.>.<Milestone No.>.<Feature No.>.<Task No.>-<簡潔な変更名>.md
+task-1.2.3.4-AddAuthMiddleware.md
+task-2.3.4.5.-CreateUserTable.md
+task-3.4.5.6-UpdateApiHandler.md
 ```
-
-
-### Task 配下
-
-```
-task-01-add-auth-middleware/
-├─ README.md
-├─ task-1.2.3.4-AddAuthMiddleware.md/
-├─ task-2.3.4.5.-CreateUserTable.md/
-```
-
 
 - Task ID は Feature から参照される前提とする
 

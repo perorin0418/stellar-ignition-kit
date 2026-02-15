@@ -27,6 +27,17 @@ ChangeSet では **操作レベルの指示**に限定する。
 
 ---
 
+## 命名・構造ルール
+
+### ChangeSet ファイル名
+- changeset-<Vision No.>.<Milestone No.>.<Feature No.>.<Task No.>.<ChangeSet No.>-<簡潔な変更名>.md/
+- changeset-1.2.3.4.5-AddAuthGuardRedirects.md
+- changeset-6.7.8.9.10-UpdateNavigationShellLayout.md
+
+- ChangeSet ID は Task から参照される前提とする
+
+---
+
 ## 構造ルール
 
 ChangeSet は、以下の構造に従って記述する。

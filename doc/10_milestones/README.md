@@ -77,7 +77,7 @@ Milestone の記述は、以下の意味を持つ。
 
 - ファイル名は以下を推奨する
 ```
-milestone-<Vision No.>-<Milestone No>-<簡潔な変更名>.md
+milestone-<Vision No.>.<Milestone No>-<簡潔な変更名>.md
 milestone-1.2-Foundation.md
 milestone-2.3-CoreFeatures.md
 milestone-3.4-Release.md

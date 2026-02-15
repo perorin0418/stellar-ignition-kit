@@ -1,8 +1,8 @@
 # Task
 
 ## Task 名
-- ID: 
-- 所属 Feature: 
+- ID: task-9.9.9.9-xxxxx
+- 所属 Feature: feature-9.9.9-xxxxx
 
 ## 作業目的
 この Task で達成すること。
@@ -19,8 +19,8 @@
 - この条件を満たせば Task 完了
 
 ## 対象 ChangeSets
-- [ ] changeset-99.99.99.99.99-xxxxx
-- [ ] changeset-99.99.99.99.99-xxxxx
+- [ ] changeset-9.9.9.9.9-xxxxx
+- [ ] changeset-9.9.9.9.9-xxxxx
 
 ## チェックリスト
 - [ ] 事項1

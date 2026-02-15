@@ -27,5 +27,5 @@
 - 禁止事項
 
 ## 対象 Milestones
-- [ ] milestone-01-xxxxx
-- [ ] milestone-02-xxxxx
+- [ ] milestone-9-xxxxx
+- [ ] milestone-9-xxxxx

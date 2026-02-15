@@ -1,8 +1,8 @@
 # Milestone
 
 ## Milestone 名
-- ID: 
-- 対応 Vision: 
+- ID: milestone-9.9-xxxxx
+- 対応 Vision: vision-9-xxxxx
 
 ## 目的
 この Milestone で達成すべき到達点。
@@ -18,8 +18,8 @@
 - この状態になれば Milestone 完了と判断できる
 
 ## 対象 Feature
-- [ ] feature-99.99.99-xxxxx
-- [ ] feature-99.99.99-xxxxx
+- [ ] feature-9.9.9-xxxxx
+- [ ] feature-9.9.9-xxxxx
 
 ## 依存関係
 - 前提条件: 

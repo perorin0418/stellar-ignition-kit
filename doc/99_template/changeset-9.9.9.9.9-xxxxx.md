@@ -1,8 +1,8 @@
 # ChangeSet
 
 ## ChangeSet 名
-- ID:
-- 所属 Task:
+- ID: changeset-9.9.9.9.9-xxxxx
+- 所属 Task: task-9.9.9.9-xxxxx
 
 ## 変更対象
 
