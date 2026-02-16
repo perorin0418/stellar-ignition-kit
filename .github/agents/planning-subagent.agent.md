@@ -2,7 +2,7 @@
 description: 親エージェント向けにコンテキストを調査して結果を返す
 argument-hint: 調査目標または問題の説明
 tools: ['search', 'search/usages', 'read/problems', 'search/changes', 'execute/testFailure', 'web/fetch', 'web/githubRepo']
-model: GPT-5.2-Codex
+model: GPT-5.3-Codex
 ---
 あなたは親の CONDUCTOR エージェントから呼び出される PLANNING SUBAGENT です。
 
