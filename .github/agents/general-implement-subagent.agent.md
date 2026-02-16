@@ -2,6 +2,7 @@
 description: 'CONDUCTOR エージェントから委譲された実装タスクを実行する。'
 tools: ['edit', 'search', 'execute/getTerminalOutput', 'execute/runInTerminal', 'read/terminalLastCommand', 'read/terminalSelection', 'execute/createAndRunTask', 'read/problems', 'search/changes', 'execute/testFailure', 'web/fetch', 'web/githubRepo', 'todo']
 model: GPT-5.3-Codex
+user-invocable: false
 ---
 あなたは IMPLEMENTATION SUBAGENT です。複数フェーズの計画を編成する親の CONDUCTOR エージェントから、焦点の当たった実装タスクを受け取ります。
 
