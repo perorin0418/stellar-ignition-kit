@@ -154,6 +154,13 @@ DEFAULT_TIMEOUT_SEC
 var CalculateResult = func(now time.Time, input Input) (Output, error)
 ```
 
+- 外部依存を避けるために、関数そのものを引数として受け取らない。
+
+```go
+// ❌ 禁止
+var CalculateResult = func(nowFunc func() time.Time, input Input) (Output, error)
+```
+
 ---
 
 ## 6. コメント・ドキュメント
