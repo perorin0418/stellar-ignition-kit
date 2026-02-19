@@ -5,7 +5,7 @@ doc/
 │  # プロジェクトルート
 │  # SDDおよび全工程成果物の管理単位
 │
-├─ requirements/
+├─ 10_requirements/
 │   # 要件定義工程の成果物
 │   # 「何を作るか」を定義するフェーズ
 │   │
@@ -65,7 +65,7 @@ doc/
 │       ├─ YY/
 │       └─ ZZ/
 │
-└─ /design/
+└─ /20_design/
     # 設計
     │
     ├─ coding_standards/
