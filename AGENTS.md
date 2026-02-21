@@ -65,6 +65,12 @@
   - `30_API詳細仕様.md`
   - `40_処理仕様書.md`
   - `50_例外処理方針.md`
+- `90_ガイドライン/`
+  - `10_コーディング規約/`
+    - `10_バックエンド/backend-python-coding-guide.md`
+    - `20_フロントエンド/front-csharp-wpf-coding-guide.md`
+    - `20_フロントエンド/front-nuxtjs-coding-guide.md`
+    - `30_IaC/infra-python-cdk-guide.md`
 
 ## 作業手順（AIの実行順）
 1. 対象が既存のどの分類（`00_全体概要` / `10_機能一覧` / `20_サービス統合`）かを特定する。
