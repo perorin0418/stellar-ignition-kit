@@ -248,7 +248,7 @@ backend/
 
 ## 10. テスト
 
-### 9.1 テスト必須範囲（MUST）
+### 10.1 テスト必須範囲（MUST）
 
 - 主要ロジックは **pytest のパラメタライズ** で記述する
 - 正常系・異常系を同一テーブルで明示する
@@ -276,7 +276,7 @@ def test_process_queue(input_data, setup, want, want_error):
     assert process_queue(fetch, input_data) == want
 ```
 
-### 9.2 外部依存のモック化（MUST）
+### 10.2 外部依存のモック化（MUST）
 
 - 外部依存は **関数として注入** し、直接置き換える
 - `unittest.mock.patch` などの **パッチ系モックは原則禁止**

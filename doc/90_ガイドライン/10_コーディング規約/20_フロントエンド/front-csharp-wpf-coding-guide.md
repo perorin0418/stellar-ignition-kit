@@ -220,7 +220,7 @@ StarGazer.Infrastructure.業務コード/
 build\build.bat
 ```
 
-### 7.2 デプロイ
+### 6.2 デプロイ
 
 ```
 tools\auto_deploy\auto_deploy.exe
@@ -228,7 +228,7 @@ tools\auto_deploy\auto_deploy.exe
 
 ---
 
-## 8. 禁止事項まとめ
+## 7. 禁止事項まとめ
 
 - Presentation に WPF 依存を入れる
 - Domain に UI / Framework 依存を入れる

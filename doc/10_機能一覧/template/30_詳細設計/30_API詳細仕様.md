@@ -3,7 +3,7 @@
 ## 1. 文書の目的
 - APIの詳細な設計を明確化し、開発者や利用者が正確に利用できるようにする。
 
-## 9. OpenAPI定義（YAML）
+## 2. OpenAPI定義（YAML）
 <!-- AI_READ_ONLY_START -->
 - この章には実際のOpenAPI YAML本体を記載する。
 - `paths`、`components`、`security`の更新時は、破壊的変更の有無をレビュー記録に残す。
