@@ -1,0 +1,106 @@
+<mxfile host="65bd71144e">
+    <diagram id="invoice-report-template" name="帳票サンプル（請求書）">
+        <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#222222;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="40" width="670" height="980" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="請求書" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=36;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="110" y="70" width="240" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="INVOICE" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontColor=#666666;letterSpacing=2;" parent="1" vertex="1">
+                    <mxGeometry x="112" y="118" width="180" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="発行日：2026/02/21&#xa;請求書番号：INV-20260221-001&#xa;支払期限：2026/03/31" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=12;lineHeight=1.5;" parent="1" vertex="1">
+                    <mxGeometry x="460" y="82" width="260" height="84" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="請求先" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#444444;fontStyle=1;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="110" y="180" width="300" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="株式会社サンプル商事 御中&#xa;〒100-0001 東京都千代田区サンプル1-2-3&#xa;TEL: 03-1234-5678" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;align=left;verticalAlign=top;spacing=8;fontSize=12;lineHeight=1.4;" parent="1" vertex="1">
+                    <mxGeometry x="110" y="214" width="300" height="104" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="発行元" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#444444;fontStyle=1;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="430" y="180" width="290" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="スターラーイグニッション株式会社&#xa;〒150-0001 東京都渋谷区サンプル4-5-6&#xa;登録番号：T1234567890123" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;align=left;verticalAlign=top;spacing=8;fontSize=12;lineHeight=1.4;" parent="1" vertex="1">
+                    <mxGeometry x="430" y="214" width="290" height="104" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="請求金額（税込）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EFEFEF;strokeColor=#444444;fontStyle=1;align=left;spacingLeft=10;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="110" y="336" width="220" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="¥ 550,000" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;align=right;spacingRight=12;fontSize=24;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="330" y="336" width="390" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="項目" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8E8E8;strokeColor=#444444;fontStyle=1;align=left;spacingLeft=8;" parent="1" vertex="1">
+                    <mxGeometry x="110" y="398" width="280" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="数量" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8E8E8;strokeColor=#444444;fontStyle=1;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="390" y="398" width="80" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="単価" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8E8E8;strokeColor=#444444;fontStyle=1;align=right;spacingRight=8;" parent="1" vertex="1">
+                    <mxGeometry x="470" y="398" width="120" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="金額" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8E8E8;strokeColor=#444444;fontStyle=1;align=right;spacingRight=8;" parent="1" vertex="1">
+                    <mxGeometry x="590" y="398" width="130" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="システム利用料（2026年2月分）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;align=left;spacingLeft=8;" parent="1" vertex="1">
+                    <mxGeometry x="110" y="432" width="280" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="390" y="432" width="80" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="500,000" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;align=right;spacingRight=8;" parent="1" vertex="1">
+                    <mxGeometry x="470" y="432" width="120" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="500,000" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;align=right;spacingRight=8;" parent="1" vertex="1">
+                    <mxGeometry x="590" y="432" width="130" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="導入サポート費" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;align=left;spacingLeft=8;" parent="1" vertex="1">
+                    <mxGeometry x="110" y="466" width="280" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="390" y="466" width="80" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="0" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;align=right;spacingRight=8;" parent="1" vertex="1">
+                    <mxGeometry x="470" y="466" width="120" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="0" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;align=right;spacingRight=8;" parent="1" vertex="1">
+                    <mxGeometry x="590" y="466" width="130" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="小計" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#444444;fontStyle=1;align=right;spacingRight=8;" parent="1" vertex="1">
+                    <mxGeometry x="430" y="532" width="160" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="500,000" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;align=right;spacingRight=8;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="590" y="532" width="130" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="消費税（10%）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#444444;fontStyle=1;align=right;spacingRight=8;" parent="1" vertex="1">
+                    <mxGeometry x="430" y="566" width="160" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="50,000" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;align=right;spacingRight=8;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="590" y="566" width="130" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="合計" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8E8E8;strokeColor=#444444;fontStyle=1;align=right;spacingRight=8;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="430" y="600" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="550,000" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;align=right;spacingRight=8;fontStyle=1;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="590" y="600" width="130" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="備考" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#444444;fontStyle=1;align=left;spacingLeft=8;" parent="1" vertex="1">
+                    <mxGeometry x="110" y="680" width="610" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="・お振込手数料は貴社ご負担にてお願いいたします。&#xa;・本請求に関するお問い合わせ：billing@example.co.jp" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#444444;align=left;verticalAlign=top;spacing=8;fontSize=11;lineHeight=1.5;" parent="1" vertex="1">
+                    <mxGeometry x="110" y="710" width="610" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="振込先：サンプル銀行 本店 普通 1234567 スターラーイグニッション（カ" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="110" y="825" width="610" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" value="（帳票サンプル）" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#666666;" parent="1" vertex="1">
+                    <mxGeometry x="620" y="990" width="100" height="20" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
