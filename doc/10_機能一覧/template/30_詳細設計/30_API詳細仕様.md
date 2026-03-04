@@ -4,7 +4,7 @@
 - APIの詳細な設計を明確化し、開発者や利用者が正確に利用できるようにする。
 
 ## 2. OpenAPI定義（YAML）
-<!-- AI_READ_ONLY_START -->
+<!-- AI_CONTEXT_START --><!--
 - この章には実際のOpenAPI YAML本体を記載する。
 - `paths`、`components`、`security`の更新時は、破壊的変更の有無をレビュー記録に残す。
 
@@ -81,6 +81,8 @@ components:
 security:
 	- bearerAuth: []
 ```
-<!-- AI_READ_ONLY_END -->
+--><!-- AI_CONTEXT_END -->
+<!-- AI_EXAMPLE_START --><!--
+--><!-- AI_EXAMPLE_END -->
 <!-- AI_EDITABLE_START -->
 <!-- AI_EDITABLE_END -->
