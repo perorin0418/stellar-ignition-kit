@@ -82,7 +82,7 @@ security:
 	- bearerAuth: []
 ```
 --><!-- AI_CONTEXT_END -->
-<!-- AI_EXAMPLE_START --><!--
---><!-- AI_EXAMPLE_END -->
+<!-- AI_FORMAT_START --><!--
+--><!-- AI_FORMAT_END -->
 <!-- AI_EDITABLE_START -->
 <!-- AI_EDITABLE_END -->
