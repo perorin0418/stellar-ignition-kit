@@ -52,25 +52,26 @@
 - `20_基本設計/`
   - `10_システム構成図.md`
   - `30_機能一覧.md`
-  - `50_画面遷移図.md`
+   - `50_画面遷移一覧.md`
   - `60_画面設計/`
-      - `10_サンプル画面（取引一覧）.drawio`
-      - `10_サンプル画面（取引一覧）.md`
+      - `10_サンプル画面.html`
+      - `10_サンプル画面.md`
   - `70_テーブル定義書.md`
   - `90_帳票設計/`
-      - `10_サンプル帳票（請求書）.drawio`
-      - `10_サンプル帳票（請求書）.md`
+      - `10_サンプル帳票.html`
+      - `10_サンプル帳票.md`
 - `30_詳細設計/`
   - `10_コンポーネント構造図.md`
   - `20_処理シーケンス図.md`
-  - `30_API詳細仕様.md`
-- `90_ガイドライン/`
-  - `10_コーディング規約/`
-      - `10_バックエンド/backend-golang-coding-guide.md`
-    - `10_バックエンド/backend-python-coding-guide.md`
-    - `20_フロントエンド/front-csharp-wpf-coding-guide.md`
-    - `20_フロントエンド/front-nuxtjs-coding-guide.md`
-    - `30_IaC/infra-python-cdk-guide.md`
+
+トップレベルのガイドラインは以下の構成を維持すること。
+
+- `doc/90_ガイドライン/10_コーディング規約/`
+   - `10_バックエンド/backend-golang-coding-guide.md`
+   - `10_バックエンド/backend-python-coding-guide.md`
+   - `20_フロントエンド/front-csharp-wpf-coding-guide.md`
+   - `20_フロントエンド/front-nuxtjs-coding-guide.md`
+   - `30_IaC/infra-python-cdk-guide.md`
 
 ## 作業手順（AIの実行順）
 1. 対象が既存のどの分類（`00_全体概要` / `10_機能一覧` / `20_サービス統合` / `90_ガイドライン`）かを特定する。
@@ -83,7 +84,7 @@
 ## 禁止事項（MUST NOT）
 - `template` 自体の破壊的変更（改名・章削除・構造変更）
 - 接頭辞番号ルールを無視したファイル/フォルダ作成
-- `AI_READ_ONLY` ブロックの編集
+- `AI_CONTEXT` / `AI_FORMAT` ブロックの編集
 - 依頼のない新規分類（例: `30_運用設計`）の追加
 - 既存文書の章番号体系を崩す変更
 - `git clean`, `git reset --hard` を使用しての変更の強制的な破棄
