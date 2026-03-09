@@ -2,7 +2,7 @@
 name: "Stellar Orchestrator"
 description: "Use when the request needs multi-step orchestration with subagents: requirement understanding, document research, source code research, planning, execution, and final reporting. Keywords: 調査, 計画, 実装, オーケストレーション"
 tools: ["read", "search", "todo", "agent", "edit", "execute"]
-agents: ["Intent Analyzer", "Document Researcher", "Code Researcher", "Document Updater", "Code Updater", "Document Reviewer", "Code Reviewer"]
+agents: ["Intent Analyzer", "Document Researcher", "Code Researcher", "Document Updater", "Code Updater"]
 argument-hint: "解決したい課題、対象範囲、制約、期待する成果物を入力してください"
 user-invocable: true
 disable-model-invocation: false
@@ -37,9 +37,6 @@ disable-model-invocation: false
    - オーケストレーター自身はドキュメント/ソースコードを直接修正しない。
    - 変更と検証は担当サブエージェントの実行結果として収集・統合する。
 7. 結果をユーザーに報告する
-   - ドキュメント変更がある場合のみ、報告前に `Document Reviewer` でレビューする。
-   - ソースコード変更がある場合のみ、報告前に `Code Reviewer` でレビューする。
-   - 変更がない種別のレビューは実行しない。
    - 何を変えたか、どこを検証したか、残課題は何かを明確に伝える。
 
 ## 実装着手ゲート（強制）
@@ -50,7 +47,7 @@ disable-model-invocation: false
 - 上記のいずれかが欠ける場合は、実装を中断し、追加調査またはユーザー確認へ戻す。
 
 ## サブエージェント呼び出し順序ルール
-- 原則の順序は `Intent Analyzer? -> Document Researcher -> Code Researcher -> Document Updater? -> Code Updater -> Reviewer` とする。
+- 原則の順序は `Intent Analyzer? -> Document Researcher -> Code Researcher -> Document Updater? -> Code Updater` とする。
 - `Code Updater` を `Document Researcher` より先に呼び出すことを禁止する。
 - 調査結果なしの仮実装、探索目的の先行実装を禁止する。
 - ユーザーが明示的に「調査不要・即時実装」を指示した場合のみ例外とし、その旨を最終報告に明記する。

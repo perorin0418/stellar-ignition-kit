@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>サンプル帳票 - 請求書</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Barlow:wght@600;700&display=swap"
+		rel="stylesheet"
+	/>
+	<style>
+		:root {
+			--paper: #ffffff;
+			--ink-1: #1f2937;
+			--ink-2: #4b5563;
+			--line: #d5dbe6;
+			--line-2: #e9edf4;
+			--brand: #0f766e;
+			--accent: #1d4ed8;
+			--bg: #f1f5f9;
+			--shadow: 0 22px 42px rgba(15, 23, 42, 0.14);
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			margin: 0;
+			font-family: "Zen Kaku Gothic New", sans-serif;
+			color: var(--ink-1);
+			background:
+				radial-gradient(circle at 12% 8%, rgba(15, 118, 110, 0.14), transparent 30%),
+				radial-gradient(circle at 88% 92%, rgba(29, 78, 216, 0.12), transparent 34%),
+				linear-gradient(140deg, #edf2f7, var(--bg));
+			padding: 22px;
+		}
+
+		.sheet {
+			max-width: 980px;
+			margin: 0 auto;
+			background: var(--paper);
+			border: 1px solid #d7deea;
+			border-radius: 14px;
+			box-shadow: var(--shadow);
+			overflow: hidden;
+		}
+
+		.report-header {
+			display: grid;
+			grid-template-columns: 1fr auto;
+			gap: 18px;
+			padding: 24px 28px;
+			background: linear-gradient(120deg, #f8fbff, #f0f7f7);
+			border-bottom: 1px solid var(--line);
+		}
+
+		h1 {
+			margin: 0;
+			font-family: "Barlow", sans-serif;
+			font-size: 34px;
+			letter-spacing: 0.06em;
+			color: #0f172a;
+		}
+
+		.subtitle {
+			margin-top: 6px;
+			font-size: 13px;
+			color: var(--ink-2);
+		}
+
+		.badge {
+			display: inline-block;
+			margin-top: 10px;
+			padding: 4px 10px;
+			border-radius: 999px;
+			font-size: 12px;
+			font-weight: 700;
+			background: #e8f3ff;
+			color: var(--accent);
+			border: 1px solid #bfdbfe;
+		}
+
+		.company-block {
+			text-align: right;
+			font-size: 12px;
+			line-height: 1.6;
+			color: #334155;
+		}
+
+		.meta-area {
+			padding: 18px 28px 8px;
+			display: grid;
+			grid-template-columns: 1.2fr 1fr;
+			gap: 16px;
+		}
+
+		.panel {
+			border: 1px solid var(--line);
+			border-radius: 10px;
+			padding: 12px 14px;
+			background: #fff;
+		}
+
+		.panel h2 {
+			margin: 0 0 8px;
+			font-size: 13px;
+			color: #0b5d57;
+		}
+
+		.panel p {
+			margin: 2px 0;
+			font-size: 13px;
+			line-height: 1.6;
+		}
+
+		.meta-table {
+			width: 100%;
+			border-collapse: collapse;
+			font-size: 12px;
+		}
+
+		.meta-table th,
+		.meta-table td {
+			border-bottom: 1px solid var(--line-2);
+			padding: 6px 4px;
+		}
+
+		.meta-table th {
+			text-align: left;
+			color: var(--ink-2);
+			width: 36%;
+			font-weight: 500;
+		}
+
+		.content {
+			padding: 14px 28px 8px;
+		}
+
+		table.items {
+			width: 100%;
+			border-collapse: collapse;
+			font-size: 13px;
+			border: 1px solid var(--line);
+			border-radius: 10px;
+			overflow: hidden;
+		}
+
+		table.items th,
+		table.items td {
+			padding: 10px 10px;
+			border-bottom: 1px solid var(--line-2);
+			vertical-align: top;
+		}
+
+		table.items th {
+			font-size: 12px;
+			background: #f1f7f8;
+			text-align: left;
+			font-weight: 700;
+		}
+
+		table.items td.num,
+		table.items th.num {
+			text-align: right;
+		}
+
+		table.items tr:last-child td {
+			border-bottom: none;
+		}
+
+		.summary {
+			display: grid;
+			grid-template-columns: 1fr 300px;
+			gap: 14px;
+			margin-top: 14px;
+		}
+
+		.notes {
+			border: 1px dashed #bfd3df;
+			border-radius: 10px;
+			padding: 12px;
+			font-size: 12px;
+			line-height: 1.7;
+			color: #334155;
+			background: #fbfdff;
+		}
+
+		.total-table {
+			width: 100%;
+			border-collapse: collapse;
+			font-size: 13px;
+			border: 1px solid var(--line);
+			border-radius: 10px;
+			overflow: hidden;
+		}
+
+		.total-table th,
+		.total-table td {
+			padding: 9px 10px;
+			border-bottom: 1px solid var(--line-2);
+		}
+
+		.total-table th {
+			text-align: left;
+			font-weight: 500;
+			color: #475569;
+		}
+
+		.total-table td {
+			text-align: right;
+			font-family: "Barlow", sans-serif;
+			letter-spacing: 0.02em;
+		}
+
+		.total-table tr.grand th,
+		.total-table tr.grand td {
+			font-weight: 700;
+			color: #0f172a;
+			background: #ecf5f0;
+			font-size: 15px;
+		}
+
+		.footer {
+			margin-top: 14px;
+			padding: 14px 28px 24px;
+			border-top: 1px solid var(--line);
+			display: flex;
+			justify-content: space-between;
+			gap: 12px;
+			font-size: 12px;
+			color: #475569;
+			flex-wrap: wrap;
+		}
+
+		.stamp {
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			padding: 5px 10px;
+			border: 1px solid #a7f3d0;
+			background: #ecfdf5;
+			border-radius: 999px;
+			color: #065f46;
+			font-weight: 700;
+		}
+
+		@media (max-width: 860px) {
+			.report-header,
+			.meta-area,
+			.summary {
+				grid-template-columns: 1fr;
+			}
+
+			.company-block {
+				text-align: left;
+			}
+
+			.sheet {
+				border-radius: 10px;
+			}
+		}
+
+		@media print {
+			body {
+				background: #fff;
+				padding: 0;
+			}
+
+			.sheet {
+				max-width: 100%;
+				border: none;
+				box-shadow: none;
+				border-radius: 0;
+			}
+
+			@page {
+				size: A4 portrait;
+				margin: 12mm;
+			}
+		}
+	</style>
+</head>
+<body>
+	<main class="sheet">
+		<header class="report-header">
+			<div>
+				<h1>請求書</h1>
+				<div class="subtitle">INVOICE</div>
+				<div class="badge">帳票ID: RPT-INV-001</div>
+			</div>
+			<div class="company-block">
+				<strong>Stellar Ignition 株式会社</strong><br />
+				〒100-0001 東京都千代田区1-2-3<br />
+				TEL: 03-1234-5678 / FAX: 03-1234-5679<br />
+				Email: billing@example.co.jp
+			</div>
+		</header>
+
+		<section class="meta-area">
+			<article class="panel">
+				<h2>ご請求先</h2>
+				<p>株式会社サンプル商事 御中</p>
+				<p>営業本部 ご担当者様</p>
+				<p>〒150-0001 東京都渋谷区神宮前9-9-9</p>
+			</article>
+
+			<article class="panel">
+				<h2>請求情報</h2>
+				<table class="meta-table" aria-label="請求情報">
+					<tbody>
+						<tr>
+							<th>請求番号</th>
+							<td>INV-2026-0305-001</td>
+						</tr>
+						<tr>
+							<th>請求日</th>
+							<td>2026/03/05</td>
+						</tr>
+						<tr>
+							<th>お支払期限</th>
+							<td>2026/03/31</td>
+						</tr>
+						<tr>
+							<th>取引期間</th>
+							<td>2026/02/01 - 2026/02/28</td>
+						</tr>
+					</tbody>
+				</table>
+			</article>
+		</section>
+
+		<section class="content">
+			<table class="items" aria-label="請求明細">
+				<thead>
+					<tr>
+						<th style="width: 44%">項目</th>
+						<th class="num" style="width: 14%">数量</th>
+						<th class="num" style="width: 18%">単価(円)</th>
+						<th class="num" style="width: 24%">金額(円)</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>月次運用サポート費（2026年2月分）</td>
+						<td class="num">1</td>
+						<td class="num">180,000</td>
+						<td class="num">180,000</td>
+					</tr>
+					<tr>
+						<td>追加開発費（機能改善チケット #A-204）</td>
+						<td class="num">12h</td>
+						<td class="num">14,000</td>
+						<td class="num">168,000</td>
+					</tr>
+					<tr>
+						<td>クラウド利用料 立替（2026年2月分）</td>
+						<td class="num">1</td>
+						<td class="num">42,560</td>
+						<td class="num">42,560</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<div class="summary">
+				<div class="notes">
+					<strong>備考</strong><br />
+					・お振込手数料は貴社にてご負担をお願いいたします。<br />
+					・本書はサンプル帳票（モック）です。実運用時は承認者、請求ステータス、改訂履歴を要件に応じて追記してください。<br />
+					・振込先: みらい銀行 東京中央支店 普通 1234567 ステライグニッション(カ
+				</div>
+
+				<table class="total-table" aria-label="合計金額">
+					<tbody>
+						<tr>
+							<th>小計</th>
+							<td>390,560</td>
+						</tr>
+						<tr>
+							<th>消費税 (10%)</th>
+							<td>39,056</td>
+						</tr>
+						<tr class="grand">
+							<th>ご請求金額</th>
+							<td>429,616 円</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<footer class="footer">
+			<div>
+				発行者: 経理部 請求担当 / お問い合わせ: billing@example.co.jp
+			</div>
+			<div class="stamp">社内確認済み</div>
+		</footer>
+	</main>
+</body>
+</html>
