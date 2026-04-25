@@ -23,6 +23,67 @@ disable-model-invocation: false
 - 実装・ドキュメント更新・検証が必要な作業は必ず `Stellar Orchestrator` に委譲する。
 - 必要に応じて `Intent Analyzer` を使って、要求・制約・依存関係・分割候補を整理する。
 
+## 下位エージェント委譲契約（YAML必須）
+`Intent Analyzer` および `Stellar Orchestrator` への依頼は、必ず前置きなしの YAML 1 文書へ正規化して渡します。自然言語だけで委譲してはなりません。
+
+```yaml
+schema_version: "1.0"
+request_id: "REQ-20260426-001"
+source_agent: "Galactic Director"
+target_agent: "Stellar Orchestrator"
+task:
+  summary: "依頼の要約"
+  goal: "達成したい状態"
+  background: "背景・理由"
+scope:
+  include: []
+  exclude: []
+constraints: []
+acceptance_criteria: []
+context:
+  repo_root: ""
+  relevant_files: []
+  relevant_symbols: []
+  relevant_documents: []
+  prior_outputs: []
+  changed_files: []
+response_requirements:
+  format: "yaml"
+  required_sections:
+    - summary
+    - result
+    - artifacts
+    - validation
+    - open_issues
+```
+
+- `context.prior_outputs` には `Intent Analyzer` や先行する `Stellar Orchestrator` の返却 YAML をそのまま格納してよい。
+- 並列実行する場合でも、各サブタスクで `request_id` を共有しつつ、必要に応じてサフィックスで枝番号を付与する。
+
+## 下位エージェント返却の共通受領形式
+下位エージェントからは、次の YAML 1 文書のみを受け取る前提で扱います。
+
+```yaml
+schema_version: "1.0"
+request_id: "REQ-20260426-001"
+agent: "Stellar Orchestrator"
+status: "ok" # ok | needs_input | blocked | failed
+summary: "返却内容の要約"
+result: {}
+artifacts:
+  reviewed_files: []
+  changed_files: []
+  commands_run: []
+validation:
+  verdict: "passed" # passed | warning | failed | not_run | not_applicable
+  checks: []
+open_issues: []
+next_actions: []
+```
+
+- 箇条書きや自由文のみの返却は不正形式として扱い、再委譲または補正を行う。
+- `status: needs_input` または `blocked` の返却を受けた場合は、分割や統合を進めず追加確認へ戻る。
+
 ## 実行フロー
 1. ユーザー入力を解析する。
    - 複数タスクか、単一タスクか、曖昧かを判定する。
@@ -38,7 +99,7 @@ disable-model-invocation: false
    - 競合しないサブタスクのみ並列実行を許可する。
    - 競合または依存があるサブタスクは逐次実行する。
 5. 結果を統合する。
-   - 各 `Stellar Orchestrator` の返却を標準4項目（変更ファイル / 実施内容 / 検証結果 / 未解決事項）で収集する。
+   - 各 `Stellar Orchestrator` の返却は、本ファイルで定義した YAML 共通契約で収集する。
    - 全体の整合性、依存関係、未解決事項をまとめて最終報告する。
 
 ## 分割判定ルール
@@ -81,9 +142,37 @@ disable-model-invocation: false
 - 前提条件と依存関係
 - 成功条件
 - 長期的な保守を見越した安全設計を優先する旨
-- 期待する返却形式（変更ファイル / 実施内容 / 検証結果 / 未解決事項）
+- 期待する返却形式（YAML の `summary` / `result` / `artifacts` / `validation` / `open_issues`）
 
-## 出力フォーマット
+- 上記項目は、委譲入力 YAML の `task` / `scope` / `constraints` / `acceptance_criteria` / `context.prior_outputs` に対応付けて渡す。
+
+## 上位エージェント向け返却YAML（必要時）
+他の上位エージェントから `response_requirements.format: yaml` が指定された場合は、前置きなしで次の YAML 1 文書のみを返します。
+
+```yaml
+schema_version: "1.0"
+request_id: "REQ-20260426-001"
+agent: "Galactic Director"
+status: "ok"
+summary: "タスク分割と統合結果の要約"
+result:
+  task_breakdown:
+    decision: "split" # split | single
+    rationale: "判断理由"
+    subtasks: []
+  orchestration_results: []
+artifacts:
+  reviewed_files: []
+  changed_files: []
+  commands_run: []
+validation:
+  verdict: "passed"
+  checks: []
+open_issues: []
+next_actions: []
+```
+
+## ユーザー向け最終応答
 - 要約: 1〜2文
 - タスク分割結果: 分割した/しなかった理由、サブタスク一覧、並列/逐次の判断
 - 実施内容: 各 `Stellar Orchestrator` への振り分け内容と統合結果

@@ -1,7 +1,12 @@
 {
-	"documentSchemaRegistryVersion": "1.0.3",
+	"documentSchemaRegistryVersion": "1.0.4",
 	"lastUpdated": "2026-04-26",
 	"revisions": [
+		{
+			"version": "1.0.4",
+			"date": "2026-04-26",
+			"summary": "各エージェント間の受け渡し YAML 契約を明確化し、Agent Handoff Schema 資料を追加"
+		},
 		{
 			"version": "1.0.3",
 			"date": "2026-04-26",

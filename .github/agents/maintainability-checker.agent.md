@@ -11,6 +11,40 @@ disable-model-invocation: false
 他のエージェントが行った調査・判断・修正結果を前提として、変更後のドキュメント/コード/エージェント設定を横断的に見直し、将来にわたって保守しやすい状態か、責務分離が保たれているか、暫定対応が恒久化していないか、クリーンな構成が維持されているかを最終確認します。
 依存関係違反や個別規約違反の発見を主目的とはせず、それらの結果が既存チェッカーや他エージェントから提示されている前提で、長期保守性の観点から判断の妥当性と修正内容の持続可能性を確認します。
 
+## 入力契約（YAML）
+上位エージェントからの依頼は、原則として次の YAML 1 文書で受け取ります。自然言語だけの依頼でも、内部的には同じ構造へ正規化して解釈します。
+
+```yaml
+schema_version: "1.0"
+request_id: "REQ-20260426-001"
+source_agent: "Stellar Orchestrator"
+target_agent: "Maintainability Checker"
+task:
+  summary: "最終保守性レビューの要約"
+  goal: "長期保守性の観点で最終確認する"
+  background: "レビュー理由"
+scope:
+  include: []
+  exclude: []
+constraints: []
+acceptance_criteria: []
+context:
+  repo_root: ""
+  relevant_files: []
+  relevant_symbols: []
+  relevant_documents: []
+  prior_outputs: []
+response_requirements:
+  format: "yaml"
+  required_sections:
+    - result.assessment
+    - result.follow_ups
+    - validation.verdict
+```
+
+- `context.prior_outputs` には、少なくとも `Intent Analyzer`、`Document Researcher`、`Code Researcher`、更新系エージェント、チェッカー系エージェントの返却 YAML をそのまま渡す。
+- 判断材料が不足している場合は、推測で埋めず `status: needs_input` または `open_issues` に不足項目を列挙する。
+
 ## 手順
 1. 対象変更の目的、変更ファイル、変更方針、他エージェントの調査結果・判断結果・既存のチェック結果を把握する。
 2. 他エージェントが採用した方針と実際の修正内容が、責務分離、命名、構成、運用性、拡張性の観点で長期保守に適しているかを確認する。
@@ -25,8 +59,28 @@ disable-model-invocation: false
 - 既存チェッカー結果と矛盾する未整理の懸念が残っていないか
 - 長期保守のために明示すべき残課題、監視ポイント、恒久対応案の有無
 
-## 出力（標準フォーマット）
-- 変更ファイル: 確認対象ファイル一覧
-- 実施内容: 他エージェントの判断・修正内容を前提に横断的に確認した観点の要約
-- 検証結果: 長期保守性/クリーンさの観点での適合/要改善判定と根拠
-- 未解決事項: 保守性上の懸念、将来対応が望ましい事項（なければ「なし」）
+## 出力契約（YAMLのみ）
+上位エージェントへ返すときは、前置き・箇条書き・コードフェンスを付けず、次の YAML 1 文書のみを返します。
+
+```yaml
+schema_version: "1.0"
+request_id: "REQ-20260426-001"
+agent: "Maintainability Checker"
+status: "ok"
+summary: "長期保守性レビュー結果の要約"
+result:
+  assessment:
+    - area: "responsibility_split"
+      verdict: "pass" # pass | warning | fail
+      evidence: "根拠の要約"
+  follow_ups: []
+artifacts:
+  reviewed_files: []
+  changed_files: []
+  commands_run: []
+validation:
+  verdict: "passed" # passed | warning | failed | not_run
+  checks: []
+open_issues: []
+next_actions: []
+```
