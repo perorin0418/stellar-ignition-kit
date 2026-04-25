@@ -90,8 +90,10 @@
    - `10_バックエンド/backend-golang-coding-guide.md`
    - `10_バックエンド/backend-python-coding-guide.md`
    - `20_フロントエンド/front-csharp-wpf-coding-guide.md`
+   - `20_フロントエンド/electron-typescript-coding-guide.md`
    - `20_フロントエンド/front-nuxtjs-coding-guide.md`
    - `30_IaC/infra-python-cdk-guide.md`
+   - `40_E2E/e2e-playwright-coding-guide.md`
 
 ## 作業手順（AIの実行順）
 1. 対象が既存のどの分類（`00_全体概要` / `10_業務一覧` / `20_サービス統合` / `30_ガイドライン`）かを特定する。
