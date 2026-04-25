@@ -1,7 +1,12 @@
 {
-	"documentSchemaRegistryVersion": "1.0.1",
-	"lastUpdated": "2026-04-24",
+	"documentSchemaRegistryVersion": "1.0.3",
+	"lastUpdated": "2026-04-26",
 	"revisions": [
+		{
+			"version": "1.0.3",
+			"date": "2026-04-26",
+			"summary": "Maintainability Checker の役割を長期保守性レビューに明確化し、Orchestrator からの引き渡し要件を追加"
+		},
 		{
 			"version": "1.0.2",
 			"date": "2026-04-25",

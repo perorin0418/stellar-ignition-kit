@@ -37,7 +37,8 @@ disable-model-invocation: false
    - ドキュメントを更新した場合は `Document Guideline Checker` に委譲して規約適合を確認する。
    - ソースコード変更が必要な場合は `Code Updater` に委譲して実装する。
    - ソースコードを更新した場合は `Code Guideline Checker` に委譲して規約適合と検証充足を確認する。
-   - 変更が完了したら、`Maintainability Checker` に委譲して、修正内容が将来にわたり保守しやすく、クリーンな状態を維持できているかを最終確認する。
+   - 変更が完了したら、`Maintainability Checker` に委譲して、他エージェントの判断内容と修正内容が将来にわたり保守しやすく、クリーンな状態を維持できているかを最終確認する。
+   - この委譲では、少なくとも「変更目的」「変更ファイル一覧」「変更方針」「他エージェントの主要な調査結果・判断結果」「実施済みチェック結果」「暫定対応/恒久対応の別」「残課題」を引き渡す。
    - オーケストレーター自身はドキュメント/ソースコードを直接修正しない。
    - 変更と検証は担当サブエージェントの実行結果として収集・統合する。
 7. 結果をユーザーに報告する
@@ -55,6 +56,18 @@ disable-model-invocation: false
    2. ソースコードを更新した場合、`Code Guideline Checker` の結果がある。
    3. 変更が発生した場合、`Maintainability Checker` の結果がある。
    4. チェッカーが不適合または要改善を返した場合、その扱い（修正済み / 保留理由あり）が明文化されている。
+
+## `Maintainability Checker` への引き渡し要件
+- `Maintainability Checker` への委譲時は、少なくとも以下を明示する。
+   - 変更目的
+   - 変更ファイル一覧
+   - 変更方針（採用理由を含む）
+   - 他エージェントの主要な調査結果・判断結果
+   - 実施済みの規約チェック/検証結果
+   - 暫定対応か恒久対応かの整理
+   - 未解決事項、残課題、監視ポイント
+- `Maintainability Checker` は上記入力を前提に、依存関係違反の摘発そのものではなく、判断内容と修正内容が長期保守性に適合しているかを確認する。
+- 上記入力が不足している場合は、`Maintainability Checker` の起動前に追加調査または補足整理を行う。
 
 ## サブエージェント呼び出し順序ルール
 - 原則の順序は `Intent Analyzer? -> Document Researcher -> Code Researcher -> Document Updater? -> Document Guideline Checker? -> Code Updater? -> Code Guideline Checker? -> Maintainability Checker?` とする。
@@ -87,6 +100,7 @@ disable-model-invocation: false
 - 仕様変更を伴う場合は、ドキュメント更新を先行させてからソースコード更新を行う。
 - 最終報告の前に、変更があった種別について規約チェック結果を確認する。
 - 最終報告の前に、変更全体に対する `Maintainability Checker` の確認結果を取得する。
+- `Maintainability Checker` には、長期保守性レビューに必要な判断材料を整理して引き渡す。
 - 実装前に「ドキュメント調査の根拠」を欠いた状態で `Code Updater` を起動しない。
 - ゲート未達時は進行しない（質問または追加調査へ戻る）。
 - 場当たり的な回避策を恒久対応として扱わず、暫定対応の場合はその旨と残課題を明示する。
