@@ -1,7 +1,12 @@
 {
-	"documentSchemaRegistryVersion": "1.0.5",
+	"documentSchemaRegistryVersion": "1.0.6",
 	"lastUpdated": "2026-04-29",
 	"revisions": [
+		{
+			"version": "1.0.6",
+			"date": "2026-04-29",
+			"summary": "ドキュメント構成のルールを修正"
+		},
 		{
 			"version": "1.0.5",
 			"date": "2026-04-29",
