@@ -1,7 +1,12 @@
 {
-	"documentSchemaRegistryVersion": "1.0.4",
-	"lastUpdated": "2026-04-26",
+	"documentSchemaRegistryVersion": "1.0.5",
+	"lastUpdated": "2026-04-29",
 	"revisions": [
+		{
+			"version": "1.0.5",
+			"date": "2026-04-29",
+			"summary": "画面設計ファイルの配置ルールと帳票設計ファイルの配置ルールを追加"
+		},
 		{
 			"version": "1.0.4",
 			"date": "2026-04-26",
