@@ -1,7 +1,12 @@
 {
-	"documentSchemaRegistryVersion": "1.0.7",
+	"documentSchemaRegistryVersion": "1.0.8",
 	"lastUpdated": "2026-05-03",
 	"revisions": [
+		{
+			"version": "1.0.8",
+			"date": "2026-05-03",
+			"summary": "テンプレート配下の運用ルールの正本を README.md から AGENTS.md へ移管"
+		},
 		{
 			"version": "1.0.7",
 			"date": "2026-05-03",
