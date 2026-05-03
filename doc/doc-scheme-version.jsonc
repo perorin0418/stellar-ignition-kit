@@ -1,7 +1,12 @@
 {
-	"documentSchemaRegistryVersion": "1.0.6",
-	"lastUpdated": "2026-04-29",
+	"documentSchemaRegistryVersion": "1.0.7",
+	"lastUpdated": "2026-05-03",
 	"revisions": [
+		{
+			"version": "1.0.7",
+			"date": "2026-05-03",
+			"summary": "README.md の変更禁止ルールを追加"
+		},
 		{
 			"version": "1.0.6",
 			"date": "2026-04-29",
