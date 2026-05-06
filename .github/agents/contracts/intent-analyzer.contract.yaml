@@ -6,8 +6,8 @@ request_template:
   source_agent: "Stellar Orchestrator"
   target_agent: "Intent Analyzer"
   contract_paths:
-    request_file: ".github/agents/handoffs/REQ-20260426-001/01-intent-analyzer-run01.request.yaml"
-    response_file: ".github/agents/handoffs/REQ-20260426-001/01-intent-analyzer-run01.response.yaml"
+    request_file: ".github/agents/handoffs/REQ-20260426-001/h001-01-intent-analyzer-run01.request.yaml"
+    response_file: ".github/agents/handoffs/REQ-20260426-001/h001-01-intent-analyzer-run01.response.yaml"
   task:
     summary: "依頼の要約"
     goal: "達成したい状態"
@@ -60,8 +60,8 @@ response_template:
         impact: "未回答の場合に決められない事項"
   artifacts:
     contract_files:
-      request_file: ".github/agents/handoffs/REQ-20260426-001/01-intent-analyzer-run01.request.yaml"
-      response_file: ".github/agents/handoffs/REQ-20260426-001/01-intent-analyzer-run01.response.yaml"
+      request_file: ".github/agents/handoffs/REQ-20260426-001/h001-01-intent-analyzer-run01.request.yaml"
+      response_file: ".github/agents/handoffs/REQ-20260426-001/h001-01-intent-analyzer-run01.response.yaml"
       prior_output_files: []
     reviewed_files: []
     changed_files: []

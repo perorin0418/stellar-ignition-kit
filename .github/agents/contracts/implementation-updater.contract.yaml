@@ -6,8 +6,8 @@ request_template:
   source_agent: "Stellar Orchestrator"
   target_agent: "Implementation Updater"
   contract_paths:
-    request_file: ".github/agents/handoffs/REQ-20260426-001/05-implementation-updater-run01.request.yaml"
-    response_file: ".github/agents/handoffs/REQ-20260426-001/05-implementation-updater-run01.response.yaml"
+    request_file: ".github/agents/handoffs/REQ-20260426-001/h005-05-implementation-updater-run01.request.yaml"
+    response_file: ".github/agents/handoffs/REQ-20260426-001/h005-05-implementation-updater-run01.response.yaml"
   task:
     summary: "統合更新内容の要約"
     goal: "更新後に満たすべき状態"
@@ -23,10 +23,10 @@ request_template:
     relevant_symbols: []
     relevant_documents: []
     prior_output_files:
-      - ".github/agents/handoffs/REQ-20260426-001/01-intent-analyzer-run01.response.yaml"
-      - ".github/agents/handoffs/REQ-20260426-001/02-document-researcher-run01.response.yaml"
-      - ".github/agents/handoffs/REQ-20260426-001/03-code-researcher-run01.response.yaml"
-      - ".github/agents/handoffs/REQ-20260426-001/04-task-planner-run01.response.yaml"
+      - ".github/agents/handoffs/REQ-20260426-001/h001-01-intent-analyzer-run01.response.yaml"
+      - ".github/agents/handoffs/REQ-20260426-001/h002-02-document-researcher-run01.response.yaml"
+      - ".github/agents/handoffs/REQ-20260426-001/h003-03-code-researcher-run01.response.yaml"
+      - ".github/agents/handoffs/REQ-20260426-001/h004-04-task-planner-run01.response.yaml"
     prior_outputs:
       - "<Intent Analyzer YAML>"
       - "<Document Researcher YAML>"
@@ -70,13 +70,13 @@ response_template:
     unresolved_tbd: []
   artifacts:
     contract_files:
-      request_file: ".github/agents/handoffs/REQ-20260426-001/05-implementation-updater-run01.request.yaml"
-      response_file: ".github/agents/handoffs/REQ-20260426-001/05-implementation-updater-run01.response.yaml"
+      request_file: ".github/agents/handoffs/REQ-20260426-001/h005-05-implementation-updater-run01.request.yaml"
+      response_file: ".github/agents/handoffs/REQ-20260426-001/h005-05-implementation-updater-run01.response.yaml"
       prior_output_files:
-        - ".github/agents/handoffs/REQ-20260426-001/01-intent-analyzer-run01.response.yaml"
-        - ".github/agents/handoffs/REQ-20260426-001/02-document-researcher-run01.response.yaml"
-        - ".github/agents/handoffs/REQ-20260426-001/03-code-researcher-run01.response.yaml"
-        - ".github/agents/handoffs/REQ-20260426-001/04-task-planner-run01.response.yaml"
+        - ".github/agents/handoffs/REQ-20260426-001/h001-01-intent-analyzer-run01.response.yaml"
+        - ".github/agents/handoffs/REQ-20260426-001/h002-02-document-researcher-run01.response.yaml"
+        - ".github/agents/handoffs/REQ-20260426-001/h003-03-code-researcher-run01.response.yaml"
+        - ".github/agents/handoffs/REQ-20260426-001/h004-04-task-planner-run01.response.yaml"
     reviewed_files: []
     changed_files: []
     commands_run: []

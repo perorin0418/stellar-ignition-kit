@@ -28,10 +28,11 @@ disable-model-invocation: false
   - `Document Guideline Checker`: `.github/agents/contracts/document-guideline-checker.contract.yaml`
   - `Code Guideline Checker`: `.github/agents/contracts/code-guideline-checker.contract.yaml`
   - `Maintainability Checker`: `.github/agents/contracts/maintainability-checker.contract.yaml`
-- 契約ファイルは `.github/agents/handoffs/<request_id>/` 配下へ配置し、`<step>-<agent-slug>-run<nn>.request.yaml` / `<step>-<agent-slug>-run<nn>.response.yaml` の命名を標準とする。
-- `run<nn>` は同一 `request_id` かつ同一 `<step>-<agent-slug>` 内の実行連番とし、初回は `run01`、`needs_input` や `blocked` からの再委譲時は `run02`、`run03` ... のようにインクリメントする。
+- 契約ファイルは `.github/agents/handoffs/<request_id>/` 配下へ配置し、`h<handoff-nnn>-<step>-<agent-slug>-run<nn>.request.yaml` / `h<handoff-nnn>-<step>-<agent-slug>-run<nn>.response.yaml` の命名を標準とする。
+- `h<handoff-nnn>` は同一 `request_id` 内での handoff 発行順を表す通し番号とし、初回は `h001`、以降はエージェント種別や step の戻り有無にかかわらず `h002`, `h003` ... のように単調増加させる。これにより、後からファイル名順だけで step の戻りや再実行の発生順を追跡できる。
+- `run<nn>` は同一 `request_id` かつ同一 `<step>-<agent-slug>` 内の実行連番とし、初回は `run01`、`needs_input` や `blocked` からの再委譲時は `run02`、`run03` ... のようにインクリメントする。`run<nn>` はローカルな再実行回数、`h<handoff-nnn>` はワークフロー全体の時系列を表す。
 - オーケストレーターはサブエージェント起動前に必ず request YAML ファイルを作成し、依頼時にはその `request_file` と `response_file` を明示する。
-- 再委譲時は過去の request / response YAML を上書きせず、新しい `run<nn>` で request / response のペアを追加作成する。
+- 再委譲時は過去の request / response YAML を上書きせず、新しい `h<handoff-nnn>` と必要に応じて新しい `run<nn>` を使った request / response のペアを追加作成する。
 - `context.prior_output_files` には、先行エージェントが作成した response YAML ファイルパスを格納する。原則として採用中の最新 run の response を渡し、比較や経緯確認が必要な場合のみ旧 run の response を追加してよい。`context.prior_outputs` は要約や抜粋の補助情報としてのみ使用してよく、正本はファイルとする。
 - `context.changed_files` は、変更候補または変更済みファイル一覧を対象エージェントの契約テンプレートに従って渡す。
 - `context.user_answers` には、`result.questions[*].id` に対応するユーザー回答を `question_id`, `answer`, `notes` の形で格納して再委譲する。
@@ -47,7 +48,7 @@ disable-model-invocation: false
 
 - `status: needs_input` または `blocked` を受け取った場合は、そのまま先へ進めず、追加調査またはユーザー確認へ戻す。
 - `status: needs_input` を受け取り、`result.questions` をユーザーへ提示する直前には、`(New-Object Media.SoundPlayer 'C:\Windows\Media\Ring06.wav').Play()` を実行して通知する。音の再生に失敗しても質問提示自体は継続する。
-- `status: needs_input` を返したエージェントを再実行する場合は、ユーザーから得た回答を `context.user_answers` に格納し、`run<nn>` を 1 つ進めた新しい contract_paths を発行して同じ契約テンプレートで再委譲する。
+- `status: needs_input` を返したエージェントを再実行する場合は、ユーザーから得た回答を `context.user_answers` に格納し、`h<handoff-nnn>` を 1 つ進め、かつ `run<nn>` を 1 つ進めた新しい contract_paths を発行して同じ契約テンプレートで再委譲する。
 - `status: needs_input` を返したサブエージェントについては、そのサブエージェントを呼び出した実行フロー番号の中で `result.questions` に基づくユーザー確認、`context.user_answers` を付与した再実行、結果更新まで完了させてから次のフロー番号へ進む。
 - 箇条書きや自由文のみの返却、または response YAML ファイル未作成は不正形式として扱い、再委譲または補正を行う。
 

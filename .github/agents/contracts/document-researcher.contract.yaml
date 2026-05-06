@@ -6,8 +6,8 @@ request_template:
   source_agent: "Stellar Orchestrator"
   target_agent: "Document Researcher"
   contract_paths:
-    request_file: ".github/agents/handoffs/REQ-20260426-001/02-document-researcher-run01.request.yaml"
-    response_file: ".github/agents/handoffs/REQ-20260426-001/02-document-researcher-run01.response.yaml"
+    request_file: ".github/agents/handoffs/REQ-20260426-001/h002-02-document-researcher-run01.request.yaml"
+    response_file: ".github/agents/handoffs/REQ-20260426-001/h002-02-document-researcher-run01.response.yaml"
   task:
     summary: "調査対象の要約"
     goal: "知りたいこと"
@@ -57,8 +57,8 @@ response_template:
     maintainability_constraints: []
   artifacts:
     contract_files:
-      request_file: ".github/agents/handoffs/REQ-20260426-001/02-document-researcher-run01.request.yaml"
-      response_file: ".github/agents/handoffs/REQ-20260426-001/02-document-researcher-run01.response.yaml"
+      request_file: ".github/agents/handoffs/REQ-20260426-001/h002-02-document-researcher-run01.request.yaml"
+      response_file: ".github/agents/handoffs/REQ-20260426-001/h002-02-document-researcher-run01.response.yaml"
       prior_output_files: []
     reviewed_files: []
     changed_files: []

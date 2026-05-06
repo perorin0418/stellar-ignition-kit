@@ -1,7 +1,12 @@
 {
-	"documentSchemaRegistryVersion": "1.0.9",
+	"documentSchemaRegistryVersion": "1.0.10",
 	"lastUpdated": "2026-05-06",
 	"revisions": [
+		{
+			"version": "1.0.10",
+			"date": "2026-05-06",
+			"summary": "handoff ファイル名に時系列追跡用の通し番号を追加し、step の戻りを追跡しやすく改善"
+		},
 		{
 			"version": "1.0.9",
 			"date": "2026-05-06",
