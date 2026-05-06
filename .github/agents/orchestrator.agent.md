@@ -32,12 +32,12 @@ disable-model-invocation: false
 - ユーザーから新しい指示を受けて新規ワークフローを開始するたびに、新しい `request_id` を採番し、対応する新規フォルダー `.github/agents/handoffs/<request_id>/` を作成する。既存の `request_id` フォルダーや既存 handoff ファイルを新しい指示へ流用・追記・上書きしてはならない。
 - `request_id` の正式形式は `REQ-YYYYMMDD-HHMMSS-NNN` とする。`YYYYMMDD-HHMMSS` は採番時刻（ローカル時刻、秒まで）を表し、`NNN` は同一秒内での 3 桁連番とする。
 - `request_id` の採番と handoff フォルダー作成は `.github/agents/scripts/new-request-id.ps1` を用いて行う。スクリプトは未使用の `request_id` を払い出し、`.github/agents/handoffs/<request_id>/` を作成したうえで結果を返す。
-- 契約ファイルは `.github/agents/handoffs/<request_id>/` 配下へ配置し、`h<handoff-nnn>-<step>-<agent-slug>-run<nn>.request.yaml` / `h<handoff-nnn>-<step>-<agent-slug>-run<nn>.response.yaml` の命名を標準とする。
-- `h<handoff-nnn>` は同一 `request_id` 内での handoff 発行順を表す通し番号とし、初回は `h001`、以降はエージェント種別や step の戻り有無にかかわらず `h002`, `h003` ... のように単調増加させる。これにより、後からファイル名順だけで step の戻りや再実行の発生順を追跡できる。
-- `run<nn>` は同一 `request_id` かつ同一 `<step>-<agent-slug>` 内の実行連番とし、初回は `run01`、`needs_input` や `blocked` からの再委譲時は `run02`、`run03` ... のようにインクリメントする。`run<nn>` はローカルな再実行回数、`h<handoff-nnn>` はワークフロー全体の時系列を表す。
+- `request_file` / `response_file` の採番と空ファイル生成は `.github/agents/scripts/new-handoff-files.ps1` を用いて行う。オーケストレーターは `request_id` と対象エージェント名を渡してスクリプトを実行し、返却された `contract_paths` を正本として扱う。
+- 契約ファイルの具体的なファイル名規則と衝突回避は `.github/agents/scripts/new-handoff-files.ps1` の実装を正本とする。オーケストレーターやサブエージェントが本文記述から独自にファイル名を組み立てることを禁止する。
+- ファイル名の並び順による時系列追跡や slug 正規化などの実装詳細は、説明用の参考情報であって手動運用の根拠にしてはならない。常にスクリプトの返却値を使用する。
 - オーケストレーターはサブエージェント起動前に必ず request YAML ファイルを作成し、依頼時にはその `request_file` と `response_file` を明示する。
-- 再委譲時は過去の request / response YAML を上書きせず、新しい `h<handoff-nnn>` と必要に応じて新しい `run<nn>` を使った request / response のペアを追加作成する。
-- `context.prior_output_files` には、先行エージェントが作成した response YAML ファイルパスを格納する。原則として採用中の最新 run の response を渡し、比較や経緯確認が必要な場合のみ旧 run の response を追加してよい。`context.prior_outputs` は要約や抜粋の補助情報としてのみ使用してよく、正本はファイルとする。
+- 再委譲時は過去の request / response YAML を上書きせず、`.github/agents/scripts/new-handoff-files.ps1` を再実行して新しい request / response のペアを追加作成する。
+- `context.prior_output_files` には、先行エージェントが作成した response YAML ファイルパスを格納する。原則として採用中の最新 response を渡し、比較や経緯確認が必要な場合のみ過去の response を追加してよい。`context.prior_outputs` は要約や抜粋の補助情報としてのみ使用してよく、正本はファイルとする。
 - `context.changed_files` は、変更候補または変更済みファイル一覧を対象エージェントの契約テンプレートに従って渡す。
 - `context.user_answers` には、`result.questions[*].id` に対応するユーザー回答を `question_id`, `answer`, `notes` の形で格納して再委譲する。
 - `Document-Code Consistency Checker` には、少なくとも `Document Researcher`、`Code Researcher`、`Implementation Updater`、実施済みの各種チェッカーの返却 YAML ファイルを `context.prior_output_files` に含める。
@@ -53,14 +53,14 @@ disable-model-invocation: false
 
 - `status: needs_input` または `blocked` を受け取った場合は、そのまま先へ進めず、追加調査またはユーザー確認へ戻す。
 - `status: needs_input` を受け取り、`result.questions` をユーザーへ提示する直前には、`(New-Object Media.SoundPlayer 'C:\Windows\Media\Ring06.wav').Play()` を実行して通知する。音の再生に失敗しても質問提示自体は継続する。
-- `status: needs_input` を返したエージェントを再実行する場合は、ユーザーから得た回答を `context.user_answers` に格納し、`h<handoff-nnn>` を 1 つ進め、かつ `run<nn>` を 1 つ進めた新しい contract_paths を発行して同じ契約テンプレートで再委譲する。
+- `status: needs_input` を返したエージェントを再実行する場合は、ユーザーから得た回答を `context.user_answers` に格納し、`.github/agents/scripts/new-handoff-files.ps1` を再実行して新しい `contract_paths` を発行し、同じ契約テンプレートで再委譲する。
 - `status: needs_input` を返したサブエージェントについては、そのサブエージェントを呼び出した実行フロー番号の中で `result.questions` に基づくユーザー確認、`context.user_answers` を付与した再実行、結果更新まで完了させてから次のフロー番号へ進む。
 - 箇条書きや自由文のみの返却、または response YAML ファイル未作成は不正形式として扱い、再委譲または補正を行う。
 
 ## 実行フロー
 1. ユーザーからの入力を読み解く
   - 不明確な点、前提、制約、成功条件を抽出する。
-  - 新しいユーザー指示としてワークフローを開始する場合は、最初の委譲前に `.github/agents/scripts/new-request-id.ps1` を実行して新しい `request_id` を採番し、`.github/agents/handoffs/<request_id>/` を新規作成する。過去の指示で使った handoff フォルダーや request / response YAML を再利用してはならない。
+  - 新しいユーザー指示としてワークフローを開始する場合は、最初の委譲前に `.github/agents/scripts/new-request-id.ps1` を実行して新しい `request_id` を採番し、`.github/agents/handoffs/<request_id>/` を新規作成する。各委譲の `request_file` / `response_file` は、その後 `.github/agents/scripts/new-handoff-files.ps1` を実行して生成する。過去の指示で使った handoff フォルダーや request / response YAML を再利用してはならない。
   - ユーザーが明示的に「調査不要・即時実装」を指示した場合は、このオーケストレーターでは依頼を受理せず、調査と計画を省略できない旨を伝えたうえで、別のエージェントを使用するようユーザーへ促して終了する。
   - 必要に応じて `Intent Analyzer` に要件分解を委譲する。
   - `Intent Analyzer` が `status: needs_input` を返した場合は、このステップ内で `result.questions` を用いてユーザーへ短く具体的に確認し、回答取得後は `context.user_answers` に回答を格納して `Intent Analyzer` を再実行し、要件整理結果を更新してから次へ進む。

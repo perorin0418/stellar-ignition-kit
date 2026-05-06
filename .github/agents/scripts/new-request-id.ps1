@@ -1,8 +1,7 @@
 [CmdletBinding()]
 param(
     [string]$HandoffsRoot = (Join-Path $PSScriptRoot "..\handoffs"),
-    [string]$Prefix = "REQ",
-    [switch]$AsJson
+    [string]$Prefix = "REQ"
 )
 
 Set-StrictMode -Version Latest
@@ -61,12 +60,7 @@ for ($attempt = 1; $attempt -le $maxAttempts; $attempt++) {
             handoff_directory = $handoffDirectory
         }
 
-        if ($AsJson) {
-            $result | ConvertTo-Json -Compress
-        }
-        else {
-            $requestId
-        }
+        $result | ConvertTo-Json -Compress
 
         return
     }

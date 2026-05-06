@@ -6,8 +6,8 @@ request_template:
   source_agent: "Stellar Orchestrator"
   target_agent: "Document-Code Consistency Checker"
   contract_paths:
-    request_file: ".github/agents/handoffs/REQ-20260426-120000-001/h008-08-document-code-consistency-checker-run01.request.yaml"
-    response_file: ".github/agents/handoffs/REQ-20260426-120000-001/h008-08-document-code-consistency-checker-run01.response.yaml"
+    request_file: ".github/agents/handoffs/REQ-20260426-120000-001/20260426-120008-001-document-code-consistency-checker.request.yaml"
+    response_file: ".github/agents/handoffs/REQ-20260426-120000-001/20260426-120008-101-document-code-consistency-checker.response.yaml"
   task:
     summary: "コードとドキュメント整合性確認の要約"
     goal: "仕様記述と実装の相互整合性を確認する"
@@ -23,11 +23,11 @@ request_template:
     relevant_symbols: []
     relevant_documents: []
     prior_output_files:
-      - ".github/agents/handoffs/REQ-20260426-120000-001/h002-02-document-researcher-run01.response.yaml"
-      - ".github/agents/handoffs/REQ-20260426-120000-001/h003-03-code-researcher-run01.response.yaml"
-      - ".github/agents/handoffs/REQ-20260426-120000-001/h005-05-implementation-updater-run01.response.yaml"
-      - ".github/agents/handoffs/REQ-20260426-120000-001/h006-06-document-guideline-checker-run01.response.yaml"
-      - ".github/agents/handoffs/REQ-20260426-120000-001/h007-07-code-guideline-checker-run01.response.yaml"
+      - ".github/agents/handoffs/REQ-20260426-120000-001/20260426-120002-101-document-researcher.response.yaml"
+      - ".github/agents/handoffs/REQ-20260426-120000-001/20260426-120003-101-code-researcher.response.yaml"
+      - ".github/agents/handoffs/REQ-20260426-120000-001/20260426-120005-101-implementation-updater.response.yaml"
+      - ".github/agents/handoffs/REQ-20260426-120000-001/20260426-120006-101-document-guideline-checker.response.yaml"
+      - ".github/agents/handoffs/REQ-20260426-120000-001/20260426-120007-101-code-guideline-checker.response.yaml"
     prior_outputs:
       - "<Document Researcher YAML>"
       - "<Code Researcher YAML>"
@@ -74,14 +74,14 @@ response_template:
         impact: "未回答の場合に整合性評価を確定できない事項"
   artifacts:
     contract_files:
-      request_file: ".github/agents/handoffs/REQ-20260426-120000-001/h008-08-document-code-consistency-checker-run01.request.yaml"
-      response_file: ".github/agents/handoffs/REQ-20260426-120000-001/h008-08-document-code-consistency-checker-run01.response.yaml"
+      request_file: ".github/agents/handoffs/REQ-20260426-120000-001/20260426-120008-001-document-code-consistency-checker.request.yaml"
+      response_file: ".github/agents/handoffs/REQ-20260426-120000-001/20260426-120008-101-document-code-consistency-checker.response.yaml"
       prior_output_files:
-        - ".github/agents/handoffs/REQ-20260426-120000-001/h002-02-document-researcher-run01.response.yaml"
-        - ".github/agents/handoffs/REQ-20260426-120000-001/h003-03-code-researcher-run01.response.yaml"
-        - ".github/agents/handoffs/REQ-20260426-120000-001/h005-05-implementation-updater-run01.response.yaml"
-        - ".github/agents/handoffs/REQ-20260426-120000-001/h006-06-document-guideline-checker-run01.response.yaml"
-        - ".github/agents/handoffs/REQ-20260426-120000-001/h007-07-code-guideline-checker-run01.response.yaml"
+        - ".github/agents/handoffs/REQ-20260426-120000-001/20260426-120002-101-document-researcher.response.yaml"
+        - ".github/agents/handoffs/REQ-20260426-120000-001/20260426-120003-101-code-researcher.response.yaml"
+        - ".github/agents/handoffs/REQ-20260426-120000-001/20260426-120005-101-implementation-updater.response.yaml"
+        - ".github/agents/handoffs/REQ-20260426-120000-001/20260426-120006-101-document-guideline-checker.response.yaml"
+        - ".github/agents/handoffs/REQ-20260426-120000-001/20260426-120007-101-code-guideline-checker.response.yaml"
     reviewed_files: []
     changed_files: []
     commands_run: []

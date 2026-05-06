@@ -1,7 +1,12 @@
 {
-	"documentSchemaRegistryVersion": "1.0.12",
-	"lastUpdated": "2026-05-06",
+	"documentSchemaRegistryVersion": "1.0.13",
+	"lastUpdated": "2026-05-07",
 	"revisions": [
+		{
+			"version": "1.0.13",
+			"date": "2026-05-07",
+			"summary": "handoff ファイル命名をスクリプト正本へ移行し、handoff/request_id 採番スクリプトの JSON 出力を標準化"
+		},
 		{
 			"version": "1.0.12",
 			"date": "2026-05-06",

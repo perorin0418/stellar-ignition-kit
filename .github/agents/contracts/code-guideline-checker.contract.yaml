@@ -6,8 +6,8 @@ request_template:
   source_agent: "Stellar Orchestrator"
   target_agent: "Code Guideline Checker"
   contract_paths:
-    request_file: ".github/agents/handoffs/REQ-20260426-120000-001/h007-07-code-guideline-checker-run01.request.yaml"
-    response_file: ".github/agents/handoffs/REQ-20260426-120000-001/h007-07-code-guideline-checker-run01.response.yaml"
+    request_file: ".github/agents/handoffs/REQ-20260426-120000-001/20260426-120007-001-code-guideline-checker.request.yaml"
+    response_file: ".github/agents/handoffs/REQ-20260426-120000-001/20260426-120007-101-code-guideline-checker.response.yaml"
   task:
     summary: "コード規約確認の要約"
     goal: "規約適合性と検証充足を確認する"
@@ -53,8 +53,8 @@ response_template:
     violations: []
   artifacts:
     contract_files:
-      request_file: ".github/agents/handoffs/REQ-20260426-120000-001/h007-07-code-guideline-checker-run01.request.yaml"
-      response_file: ".github/agents/handoffs/REQ-20260426-120000-001/h007-07-code-guideline-checker-run01.response.yaml"
+      request_file: ".github/agents/handoffs/REQ-20260426-120000-001/20260426-120007-001-code-guideline-checker.request.yaml"
+      response_file: ".github/agents/handoffs/REQ-20260426-120000-001/20260426-120007-101-code-guideline-checker.response.yaml"
       prior_output_files: []
     reviewed_files: []
     changed_files: []
