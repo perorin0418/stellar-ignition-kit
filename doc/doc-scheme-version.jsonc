@@ -1,7 +1,12 @@
 {
-	"documentSchemaRegistryVersion": "1.0.10",
+	"documentSchemaRegistryVersion": "1.0.11",
 	"lastUpdated": "2026-05-06",
 	"revisions": [
+		{
+			"version": "1.0.11",
+			"date": "2026-05-06",
+			"summary": "request_id の採番ルールを明確化し、秒付き形式と handoff フォルダー自動作成スクリプトを追加"
+		},
 		{
 			"version": "1.0.10",
 			"date": "2026-05-06",

@@ -2,12 +2,12 @@ schema_version: "1.0"
 contract_for: "Maintainability Checker"
 request_template:
   schema_version: "1.0"
-  request_id: "REQ-20260426-001"
+  request_id: "REQ-20260426-120000-001"
   source_agent: "Stellar Orchestrator"
   target_agent: "Maintainability Checker"
   contract_paths:
-    request_file: ".github/agents/handoffs/REQ-20260426-001/h008-08-maintainability-checker-run01.request.yaml"
-    response_file: ".github/agents/handoffs/REQ-20260426-001/h008-08-maintainability-checker-run01.response.yaml"
+    request_file: ".github/agents/handoffs/REQ-20260426-120000-001/h008-08-maintainability-checker-run01.request.yaml"
+    response_file: ".github/agents/handoffs/REQ-20260426-120000-001/h008-08-maintainability-checker-run01.response.yaml"
   task:
     summary: "最終保守性レビューの要約"
     goal: "長期保守性の観点で最終確認する"
@@ -39,7 +39,7 @@ request_template:
       - validation.verdict
 response_template:
   schema_version: "1.0"
-  request_id: "REQ-20260426-001"
+  request_id: "REQ-20260426-120000-001"
   agent: "Maintainability Checker"
   status: "ok" # ok | needs_input | blocked | failed
   summary: "長期保守性レビュー結果の要約"
@@ -56,8 +56,8 @@ response_template:
         impact: "未回答の場合に長期保守性評価を確定できない事項"
   artifacts:
     contract_files:
-      request_file: ".github/agents/handoffs/REQ-20260426-001/h008-08-maintainability-checker-run01.request.yaml"
-      response_file: ".github/agents/handoffs/REQ-20260426-001/h008-08-maintainability-checker-run01.response.yaml"
+      request_file: ".github/agents/handoffs/REQ-20260426-120000-001/h008-08-maintainability-checker-run01.request.yaml"
+      response_file: ".github/agents/handoffs/REQ-20260426-120000-001/h008-08-maintainability-checker-run01.response.yaml"
       prior_output_files: []
     reviewed_files: []
     changed_files: []

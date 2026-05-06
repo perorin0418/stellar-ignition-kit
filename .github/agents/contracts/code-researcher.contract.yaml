@@ -2,12 +2,12 @@ schema_version: "1.0"
 contract_for: "Code Researcher"
 request_template:
   schema_version: "1.0"
-  request_id: "REQ-20260426-001"
+  request_id: "REQ-20260426-120000-001"
   source_agent: "Stellar Orchestrator"
   target_agent: "Code Researcher"
   contract_paths:
-    request_file: ".github/agents/handoffs/REQ-20260426-001/h003-03-code-researcher-run01.request.yaml"
-    response_file: ".github/agents/handoffs/REQ-20260426-001/h003-03-code-researcher-run01.response.yaml"
+    request_file: ".github/agents/handoffs/REQ-20260426-120000-001/h003-03-code-researcher-run01.request.yaml"
+    response_file: ".github/agents/handoffs/REQ-20260426-120000-001/h003-03-code-researcher-run01.response.yaml"
   task:
     summary: "コード調査の要約"
     goal: "変更箇所と実装方針候補を特定する"
@@ -40,7 +40,7 @@ request_template:
       - result.risks
 response_template:
   schema_version: "1.0"
-  request_id: "REQ-20260426-001"
+  request_id: "REQ-20260426-120000-001"
   agent: "Code Researcher"
   status: "ok" # ok | needs_input | blocked | failed
   summary: "コード調査結果の要約"
@@ -68,8 +68,8 @@ response_template:
         impact: "未回答の場合に調査を確定できない事項"
   artifacts:
     contract_files:
-      request_file: ".github/agents/handoffs/REQ-20260426-001/h003-03-code-researcher-run01.request.yaml"
-      response_file: ".github/agents/handoffs/REQ-20260426-001/h003-03-code-researcher-run01.response.yaml"
+      request_file: ".github/agents/handoffs/REQ-20260426-120000-001/h003-03-code-researcher-run01.request.yaml"
+      response_file: ".github/agents/handoffs/REQ-20260426-120000-001/h003-03-code-researcher-run01.response.yaml"
       prior_output_files: []
     reviewed_files: []
     changed_files: []

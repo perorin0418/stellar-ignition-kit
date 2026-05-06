@@ -2,12 +2,12 @@ schema_version: "1.0"
 contract_for: "Document Guideline Checker"
 request_template:
   schema_version: "1.0"
-  request_id: "REQ-20260426-001"
+  request_id: "REQ-20260426-120000-001"
   source_agent: "Stellar Orchestrator"
   target_agent: "Document Guideline Checker"
   contract_paths:
-    request_file: ".github/agents/handoffs/REQ-20260426-001/h006-06-document-guideline-checker-run01.request.yaml"
-    response_file: ".github/agents/handoffs/REQ-20260426-001/h006-06-document-guideline-checker-run01.response.yaml"
+    request_file: ".github/agents/handoffs/REQ-20260426-120000-001/h006-06-document-guideline-checker-run01.request.yaml"
+    response_file: ".github/agents/handoffs/REQ-20260426-120000-001/h006-06-document-guideline-checker-run01.response.yaml"
   task:
     summary: "規約確認の要約"
     goal: "適合性を確認する"
@@ -40,7 +40,7 @@ request_template:
       - validation.verdict
 response_template:
   schema_version: "1.0"
-  request_id: "REQ-20260426-001"
+  request_id: "REQ-20260426-120000-001"
   agent: "Document Guideline Checker"
   status: "ok" # ok | needs_input | blocked | failed
   summary: "ドキュメント規約チェック結果の要約"
@@ -58,8 +58,8 @@ response_template:
         impact: "未回答の場合に規約適合を確定できない事項"
   artifacts:
     contract_files:
-      request_file: ".github/agents/handoffs/REQ-20260426-001/h006-06-document-guideline-checker-run01.request.yaml"
-      response_file: ".github/agents/handoffs/REQ-20260426-001/h006-06-document-guideline-checker-run01.response.yaml"
+      request_file: ".github/agents/handoffs/REQ-20260426-120000-001/h006-06-document-guideline-checker-run01.request.yaml"
+      response_file: ".github/agents/handoffs/REQ-20260426-120000-001/h006-06-document-guideline-checker-run01.response.yaml"
       prior_output_files: []
     reviewed_files: []
     changed_files: []
