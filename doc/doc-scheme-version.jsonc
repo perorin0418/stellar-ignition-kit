@@ -1,7 +1,12 @@
 {
-	"documentSchemaRegistryVersion": "1.0.8",
-	"lastUpdated": "2026-05-03",
+	"documentSchemaRegistryVersion": "1.0.9",
+	"lastUpdated": "2026-05-06",
 	"revisions": [
+		{
+			"version": "1.0.9",
+			"date": "2026-05-06",
+			"summary": "エージェント構成を再編し、Task Planner / Implementation Updater と YAML handoff 契約を追加"
+		},
 		{
 			"version": "1.0.8",
 			"date": "2026-05-03",

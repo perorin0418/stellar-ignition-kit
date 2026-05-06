@@ -1,0 +1,90 @@
+schema_version: "1.0"
+contract_for: "Implementation Updater"
+request_template:
+  schema_version: "1.0"
+  request_id: "REQ-20260426-001"
+  source_agent: "Stellar Orchestrator"
+  target_agent: "Implementation Updater"
+  contract_paths:
+    request_file: ".github/agents/handoffs/REQ-20260426-001/05-implementation-updater-run01.request.yaml"
+    response_file: ".github/agents/handoffs/REQ-20260426-001/05-implementation-updater-run01.response.yaml"
+  task:
+    summary: "統合更新内容の要約"
+    goal: "更新後に満たすべき状態"
+    background: "更新理由"
+  scope:
+    include: []
+    exclude: []
+  constraints: []
+  acceptance_criteria: []
+  context:
+    repo_root: ""
+    relevant_files: []
+    relevant_symbols: []
+    relevant_documents: []
+    prior_output_files:
+      - ".github/agents/handoffs/REQ-20260426-001/01-intent-analyzer-run01.response.yaml"
+      - ".github/agents/handoffs/REQ-20260426-001/02-document-researcher-run01.response.yaml"
+      - ".github/agents/handoffs/REQ-20260426-001/03-code-researcher-run01.response.yaml"
+      - ".github/agents/handoffs/REQ-20260426-001/04-task-planner-run01.response.yaml"
+    prior_outputs:
+      - "<Intent Analyzer YAML>"
+      - "<Document Researcher YAML>"
+      - "<Code Researcher YAML>"
+      - "<Task Planner YAML>"
+    changed_files: []
+    user_answers:
+      - question_id: "Q-1"
+        answer: "ユーザー回答"
+        notes: "補足があれば記載"
+  response_requirements:
+    format: "yaml"
+    handoff_mode: "file"
+    return_value: "response_file_path_only"
+    required_sections:
+      - result.documentation_changes
+      - result.source_code_changes
+      - result.implementation_decisions
+      - validation.checks
+response_template:
+  schema_version: "1.0"
+  request_id: "REQ-20260426-001"
+  agent: "Implementation Updater"
+  status: "ok" # ok | needs_input | blocked | failed
+  summary: "統合更新結果の要約"
+  result:
+    documentation_changes:
+      - path: "doc/.../target.md"
+        summary: "更新内容の要約"
+        editable_blocks_only: true
+    source_code_changes:
+      - path: "src/example.ts"
+        symbol: "ExampleService.execute"
+        summary: "変更内容の要約"
+    implementation_decisions: []
+    questions:
+      - id: "Q-1"
+        question: "ユーザーに確認したい内容"
+        why: "この確認が必要な理由"
+        impact: "未回答の場合に確定できない更新内容"
+    unresolved_tbd: []
+  artifacts:
+    contract_files:
+      request_file: ".github/agents/handoffs/REQ-20260426-001/05-implementation-updater-run01.request.yaml"
+      response_file: ".github/agents/handoffs/REQ-20260426-001/05-implementation-updater-run01.response.yaml"
+      prior_output_files:
+        - ".github/agents/handoffs/REQ-20260426-001/01-intent-analyzer-run01.response.yaml"
+        - ".github/agents/handoffs/REQ-20260426-001/02-document-researcher-run01.response.yaml"
+        - ".github/agents/handoffs/REQ-20260426-001/03-code-researcher-run01.response.yaml"
+        - ".github/agents/handoffs/REQ-20260426-001/04-task-planner-run01.response.yaml"
+    reviewed_files: []
+    changed_files: []
+    commands_run: []
+  validation:
+    verdict: "passed" # passed | warning | failed | not_run
+    checks:
+      - name: "実施した検証"
+        result: "passed"
+        detail: "検証結果の要約"
+  open_issues: []
+  next_actions: []

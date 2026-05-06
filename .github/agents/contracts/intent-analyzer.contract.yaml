@@ -1,0 +1,73 @@
+schema_version: "1.0"
+contract_for: "Intent Analyzer"
+request_template:
+  schema_version: "1.0"
+  request_id: "REQ-20260426-001"
+  source_agent: "Stellar Orchestrator"
+  target_agent: "Intent Analyzer"
+  contract_paths:
+    request_file: ".github/agents/handoffs/REQ-20260426-001/01-intent-analyzer-run01.request.yaml"
+    response_file: ".github/agents/handoffs/REQ-20260426-001/01-intent-analyzer-run01.response.yaml"
+  task:
+    summary: "依頼の要約"
+    goal: "達成したい状態"
+    background: "背景・理由"
+  scope:
+    include: []
+    exclude: []
+  constraints: []
+  acceptance_criteria: []
+  context:
+    repo_root: ""
+    relevant_files: []
+    relevant_symbols: []
+    relevant_documents: []
+    prior_output_files: []
+    prior_outputs: []
+    changed_files: []
+    user_answers:
+      - question_id: "Q-1"
+        answer: "ユーザー回答"
+        notes: "補足があれば記載"
+  response_requirements:
+    format: "yaml"
+    handoff_mode: "file"
+    return_value: "response_file_path_only"
+    required_sections:
+      - result.requirements
+      - result.constraints
+      - result.unknowns
+      - result.questions
+response_template:
+  schema_version: "1.0"
+  request_id: "REQ-20260426-001"
+  agent: "Intent Analyzer"
+  status: "ok" # ok | needs_input | blocked | failed
+  summary: "要件整理の要約"
+  result:
+    requirements:
+      - id: "REQ-1"
+        statement: "実現すべき要件"
+        rationale: "その要件が必要な理由"
+    constraints:
+      - type: "policy"
+        statement: "守るべき制約"
+    unknowns: []
+    questions:
+      - id: "Q-1"
+        question: "ユーザーに確認したい内容"
+        why: "この確認が必要な理由"
+        impact: "未回答の場合に決められない事項"
+  artifacts:
+    contract_files:
+      request_file: ".github/agents/handoffs/REQ-20260426-001/01-intent-analyzer-run01.request.yaml"
+      response_file: ".github/agents/handoffs/REQ-20260426-001/01-intent-analyzer-run01.response.yaml"
+      prior_output_files: []
+    reviewed_files: []
+    changed_files: []
+    commands_run: []
+  validation:
+    verdict: "not_applicable" # passed | warning | failed | not_applicable
+    checks: []
+  open_issues: []
+  next_actions: []

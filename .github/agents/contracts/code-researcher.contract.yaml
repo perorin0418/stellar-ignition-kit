@@ -1,0 +1,81 @@
+schema_version: "1.0"
+contract_for: "Code Researcher"
+request_template:
+  schema_version: "1.0"
+  request_id: "REQ-20260426-001"
+  source_agent: "Stellar Orchestrator"
+  target_agent: "Code Researcher"
+  contract_paths:
+    request_file: ".github/agents/handoffs/REQ-20260426-001/03-code-researcher-run01.request.yaml"
+    response_file: ".github/agents/handoffs/REQ-20260426-001/03-code-researcher-run01.response.yaml"
+  task:
+    summary: "コード調査の要約"
+    goal: "変更箇所と実装方針候補を特定する"
+    background: "調査理由"
+  scope:
+    include: []
+    exclude: []
+  constraints: []
+  acceptance_criteria: []
+  context:
+    repo_root: ""
+    relevant_files: []
+    relevant_symbols: []
+    relevant_documents: []
+    prior_output_files: []
+    prior_outputs: []
+    changed_files: []
+    user_answers:
+      - question_id: "Q-1"
+        answer: "ユーザー回答"
+        notes: "補足があれば記載"
+  response_requirements:
+    format: "yaml"
+    handoff_mode: "file"
+    return_value: "response_file_path_only"
+    required_sections:
+      - result.candidate_files
+      - result.candidate_symbols
+      - result.implementation_options
+      - result.risks
+response_template:
+  schema_version: "1.0"
+  request_id: "REQ-20260426-001"
+  agent: "Code Researcher"
+  status: "ok" # ok | needs_input | blocked | failed
+  summary: "コード調査結果の要約"
+  result:
+    candidate_files:
+      - path: "src/example.ts"
+        reason: "変更候補である根拠"
+    candidate_symbols:
+      - file: "src/example.ts"
+        symbol: "ExampleService.execute"
+        reason: "主要シンボルである根拠"
+    implementation_options:
+      - option: "既存サービスを拡張する"
+        changes: []
+        pros: []
+        cons: []
+    risks:
+      confirmed: []
+      likely: []
+      possible: []
+    questions:
+      - id: "Q-1"
+        question: "ユーザーに確認したい内容"
+        why: "この確認が必要な理由"
+        impact: "未回答の場合に調査を確定できない事項"
+  artifacts:
+    contract_files:
+      request_file: ".github/agents/handoffs/REQ-20260426-001/03-code-researcher-run01.request.yaml"
+      response_file: ".github/agents/handoffs/REQ-20260426-001/03-code-researcher-run01.response.yaml"
+      prior_output_files: []
+    reviewed_files: []
+    changed_files: []
+    commands_run: []
+  validation:
+    verdict: "not_applicable" # passed | warning | failed | not_run | not_applicable
+    checks: []
+  open_issues: []
+  next_actions: []

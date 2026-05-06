@@ -1,0 +1,70 @@
+schema_version: "1.0"
+contract_for: "Document Researcher"
+request_template:
+  schema_version: "1.0"
+  request_id: "REQ-20260426-001"
+  source_agent: "Stellar Orchestrator"
+  target_agent: "Document Researcher"
+  contract_paths:
+    request_file: ".github/agents/handoffs/REQ-20260426-001/02-document-researcher-run01.request.yaml"
+    response_file: ".github/agents/handoffs/REQ-20260426-001/02-document-researcher-run01.response.yaml"
+  task:
+    summary: "調査対象の要約"
+    goal: "知りたいこと"
+    background: "調査の背景"
+  scope:
+    include: []
+    exclude: []
+  constraints: []
+  acceptance_criteria: []
+  context:
+    repo_root: ""
+    relevant_files: []
+    relevant_symbols: []
+    relevant_documents: []
+    prior_output_files: []
+    prior_outputs: []
+    changed_files: []
+    user_answers:
+      - question_id: "Q-1"
+        answer: "ユーザー回答"
+        notes: "補足があれば記載"
+  response_requirements:
+    format: "yaml"
+    handoff_mode: "file"
+    return_value: "response_file_path_only"
+    required_sections:
+      - result.references
+      - result.key_points
+      - result.prohibitions
+      - result.maintainability_constraints
+response_template:
+  schema_version: "1.0"
+  request_id: "REQ-20260426-001"
+  agent: "Document Researcher"
+  status: "ok" # ok | needs_input | blocked | failed
+  summary: "調査結果の要約"
+  result:
+    references:
+      - path: "doc/.../sample.md"
+        focus: "確認した観点"
+        evidence: "根拠となる記述の要約"
+    key_points:
+      - statement: "重要ポイント"
+        evidence: "根拠"
+        implementation_impact: "実装や判断への影響"
+    prohibitions: []
+    maintainability_constraints: []
+  artifacts:
+    contract_files:
+      request_file: ".github/agents/handoffs/REQ-20260426-001/02-document-researcher-run01.request.yaml"
+      response_file: ".github/agents/handoffs/REQ-20260426-001/02-document-researcher-run01.response.yaml"
+      prior_output_files: []
+    reviewed_files: []
+    changed_files: []
+    commands_run: []
+  validation:
+    verdict: "not_applicable" # passed | warning | failed | not_run | not_applicable
+    checks: []
+  open_issues: []
+  next_actions: []

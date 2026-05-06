@@ -1,0 +1,66 @@
+schema_version: "1.0"
+contract_for: "Code Guideline Checker"
+request_template:
+  schema_version: "1.0"
+  request_id: "REQ-20260426-001"
+  source_agent: "Stellar Orchestrator"
+  target_agent: "Code Guideline Checker"
+  contract_paths:
+    request_file: ".github/agents/handoffs/REQ-20260426-001/07-code-guideline-checker-run01.request.yaml"
+    response_file: ".github/agents/handoffs/REQ-20260426-001/07-code-guideline-checker-run01.response.yaml"
+  task:
+    summary: "コード規約確認の要約"
+    goal: "規約適合性と検証充足を確認する"
+    background: "確認理由"
+  scope:
+    include: []
+    exclude: []
+  constraints: []
+  acceptance_criteria: []
+  context:
+    repo_root: ""
+    relevant_files: []
+    relevant_symbols: []
+    relevant_documents: []
+    prior_output_files: []
+    prior_outputs: []
+    changed_files: []
+    user_answers:
+      - question_id: "Q-1"
+        answer: "ユーザー回答"
+        notes: "補足があれば記載"
+  response_requirements:
+    format: "yaml"
+    handoff_mode: "file"
+    return_value: "response_file_path_only"
+    required_sections:
+      - result.target_files
+      - result.checks
+      - result.violations
+      - validation.verdict
+response_template:
+  schema_version: "1.0"
+  request_id: "REQ-20260426-001"
+  agent: "Code Guideline Checker"
+  status: "ok" # ok | needs_input | blocked | failed
+  summary: "コード規約チェック結果の要約"
+  result:
+    target_files: []
+    checks:
+      - name: "命名・責務分離確認"
+        result: "passed" # passed | failed | warning
+        evidence: "根拠の要約"
+    violations: []
+  artifacts:
+    contract_files:
+      request_file: ".github/agents/handoffs/REQ-20260426-001/07-code-guideline-checker-run01.request.yaml"
+      response_file: ".github/agents/handoffs/REQ-20260426-001/07-code-guideline-checker-run01.response.yaml"
+      prior_output_files: []
+    reviewed_files: []
+    changed_files: []
+    commands_run: []
+  validation:
+    verdict: "passed" # passed | warning | failed | not_run
+    checks: []
+  open_issues: []
+  next_actions: []
